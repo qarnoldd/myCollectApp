@@ -1,0 +1,125 @@
+
+.App {
+  width: 100%;
+}
+.collectionPage {
+  width: 100%;
+}
+
+.TopBar {
+  display:flex;
+  text-align: center;
+  justify-content: space-between;
+  background-color: rgb(62, 62, 62);
+}
+
+.TopBar > h2 {
+  margin-left: 20px;
+}
+
+.RightSide {
+  display: flex;
+  flex-direction: row;
+}
+
+
+.SearchBar {
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-right: 20px;
+}
+
+.SearchBar > input {
+  height: 30px;
+  border-radius: 10px;
+  border-style: none;
+  background-color: rgb(91, 91, 91);
+}
+
+.Collection {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.CollectionItem {
+  position: relative;
+  margin: 20px;
+  width: 250px;
+  height: 450px;
+  outline: solid grey 2px;
+  border-radius: 20px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  transition: transform .3s;
+  background-color: #2f2f2f;
+  box-shadow: 10px 10px 5px 0px rgba(20, 20, 20, 0.75);
+}
+
+.CollectionItem:hover {
+  transform: scale(1.15);
+}
+
+.CollectionItem > img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.CollectionItem > h3 {
+  white-space: nowrap;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.CollectionItem > p {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.RemoveButton {
+  position: absolute;
+  background-color: none;
+  margin: 20px;
+  bottom: 0;
+}
+
+.RemoveButton > button{
+  border: none;
+  border-radius: 5px;
+  height: 20px;
+  width: 30px;
+  background-color: red;
+}
+
+.RemoveButton > button:hover {
+  background-color: rgb(219, 0, 0);
+}
+
+.RemoveButton > button:active {
+  background-color: rgb(143, 0, 0);
+  transform:scale(0.9);
+}
+
+.AddButton {
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-right: 20px;
+}
+
+.AddButton > button{
+  border: none;
+  border-radius: 10px;
+  height: 30px;
+  width: 30px;
+  background-color: rgb(0, 197, 0);
+}
+
+.AddButton > button:hover {
+  background-color: rgb(0, 154, 0);
+}
+
+.AddButton > button:active {
+  background-color: rgb(0, 83, 0);
+  transform:scale(0.9);
+}
