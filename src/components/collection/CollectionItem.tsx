@@ -2,6 +2,7 @@ import { useState } from "react";
 import reactLogo from "./assets/react.svg";
 import "../../App.css";
 import RemoveButton from "./RemoveButton";
+import EditButton from "./EditButton";
 interface CollectionProps {
   title: string;
   description: string;
@@ -15,6 +16,7 @@ function CollectionItem({ title, description, image }: CollectionProps) {
       <h3>{title}</h3>
       <p>{description}</p>
       <RemoveButton />
+      <EditButton />
     </div>
   );
 }

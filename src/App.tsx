@@ -1,11 +1,16 @@
 import { useState } from "react";
 import "./App.css";
 import CollectionPage from "./pages/CollectionPage";
+import HomePage from "./pages/HomePage";
+import SideBar from "./components/sideBar/SideBar";
 
 function App() {
   return (
     <div className="App">
-      <CollectionPage title="Figures" />
+      <SideBar />
+      <div className="Page">
+        <HomePage />
+      </div>
     </div>
   );
 }
