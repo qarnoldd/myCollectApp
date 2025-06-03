@@ -1,10 +1,12 @@
 import { useState } from "react";
 import "../../App.css";
-
-function EditButton() {
+interface EditButtonProps {
+  func: () => void;
+}
+function EditButton({ func }: EditButtonProps) {
   return (
     <div className="EditButton">
-      <button>...</button>
+      <button onClick={func}>...</button>
     </div>
   );
 }

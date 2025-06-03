@@ -14,8 +14,14 @@ const listItems = itemsArray.map((item) => {
   const image = item?.images?.length
     ? item.images[0]
     : "https://placehold.co/600x400";
+
   return (
-    <CollectionItem title={title} description={description} image={image} />
+    <CollectionItem
+      title={title}
+      description={description}
+      image={image}
+      func={console.log("Edit Pressed")}
+    />
   );
 });
 

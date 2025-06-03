@@ -1,5 +1,4 @@
 import { useState } from "react";
-import reactLogo from "./assets/react.svg";
 import "../../App.css";
 import RemoveButton from "./RemoveButton";
 import EditButton from "./EditButton";
@@ -7,16 +6,18 @@ interface CollectionProps {
   title: string;
   description: string;
   image: string;
+  func: any;
 }
 
-function CollectionItem({ title, description, image }: CollectionProps) {
+function CollectionItem({ title, description, image, func }: CollectionProps) {
+  const [modalOpen, setOpen] = useState(false);
   return (
     <div className="CollectionItem">
       <img src={image} />
       <h3>{title}</h3>
       <p>{description}</p>
       <RemoveButton />
-      <EditButton />
+      <EditButton func={func} />
     </div>
   );
 }

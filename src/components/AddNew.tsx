@@ -1,10 +1,14 @@
 import { useState } from "react";
 import "../App.css";
 
-function AddButton() {
+interface AddButtonProps {
+  func: () => void;
+}
+
+function AddButton({ func }: AddButtonProps) {
   return (
     <div className="AddButton">
-      <button>+</button>
+      <button onClick={func}>+</button>
     </div>
   );
 }

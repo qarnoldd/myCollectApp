@@ -4,21 +4,24 @@ import CollectionItem from "../components/collection/CollectionItem";
 import SearchBar from "../components/SearchBar";
 import Collection from "../components/collection/Collection";
 import AddButton from "../components/AddNew";
+import NewItem from "../components/NewItem";
 
-interface CollectionPageProps {
-  title: String;
-}
+function CollectionPage() {
+  const [modalOpen, setOpen] = useState(false);
 
-function CollectionPage({ title }: CollectionPageProps) {
+  function HandleButton() {
+    setOpen(!modalOpen);
+  }
   return (
     <div className="CollectionPage">
       <div className="TopBar">
-        <h2>{title}</h2>
+        <h2>Title</h2>
         <div className="RightSide">
-          <AddButton />
+          <AddButton func={HandleButton} />
           <SearchBar />
         </div>
       </div>
+      {modalOpen && <NewItem func={HandleButton} />}
       <Collection search="" />
     </div>
   );
