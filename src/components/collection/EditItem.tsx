@@ -8,8 +8,10 @@ export default function EditItem({ func }: ModalProps) {
   const [file, setFile] = useState<string | null>(null);
 
   function handleChange(e: ChangeEvent<HTMLInputElement>) {
-    console.log(e.target.files);
-    setFile(URL.createObjectURL(e.target.files[0]));
+    const files = e.target.files;
+    if (!files) return;
+    const file = files[0];
+    setFile(URL.createObjectURL(file));
   }
   return (
     <div className="NewItem">

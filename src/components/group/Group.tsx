@@ -17,7 +17,7 @@ function Group({ icon, title, numItems }: CollectionProps) {
         <p>Number of items: {numItems}</p>
       </div>
       <RemoveButton />
-      <EditButton />
+      <EditButton func={() => console.log("EDIT GROUP PRESSED")} />
     </div>
   );
 }
