@@ -1,12 +1,13 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "../App.css";
-import CollectionItem from "../components/collection/CollectionItem";
 import SearchBar from "../components/SearchBar";
 import Collection from "../components/collection/Collection";
 import AddButton from "../components/AddNew";
 import NewItem from "../components/NewItem";
+import { useLocation } from "react-router-dom";
 
 function CollectionPage() {
+  const location = useLocation();
   const [modalOpen, setOpen] = useState(false);
 
   function HandleButton() {
@@ -21,7 +22,9 @@ function CollectionPage() {
           <SearchBar />
         </div>
       </div>
-      {modalOpen && <NewItem func={HandleButton} />}
+      {modalOpen && (
+        <NewItem collectionid={location.state.id} func={HandleButton} />
+      )}
       <Collection search="" />
     </div>
   );

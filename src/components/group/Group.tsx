@@ -2,23 +2,25 @@ import { useState } from "react";
 import "../../App.css";
 import EditButton from "../collection/EditButton";
 import RemoveButton from "../collection/RemoveButton";
+import { Link } from "react-router-dom";
 interface CollectionProps {
+  id: number;
   icon: string;
   title: string;
   numItems: number;
 }
 
-function Group({ icon, title, numItems }: CollectionProps) {
+function Group({ id, icon, title, numItems }: CollectionProps) {
   return (
-    <div className="Group">
+    <Link to="/collection" state={{ id }} className="Group">
       <img src={icon} />
       <div>
         <h3>{title}</h3>
         <p>Number of items: {numItems}</p>
       </div>
-      <RemoveButton />
+      <RemoveButton func={() => console.log("delete")} />
       <EditButton func={() => console.log("EDIT GROUP PRESSED")} />
-    </div>
+    </Link>
   );
 }
 

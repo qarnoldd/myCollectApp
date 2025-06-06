@@ -115,6 +115,20 @@
   padding-right: 20px;
 }
 
+.ItemTitleEdit {
+  white-space: nowrap;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-top:20px;
+  font-size:20px;
+}
+
+.ItemDescEdit {
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-top: 30px;
+}
+
 .CollectionItem > p {
   padding-left: 20px;
   padding-right: 20px;
@@ -125,6 +139,28 @@
   background-color: none;
   margin: 20px;
   bottom: 0;
+}
+
+.SaveButton {
+  position: absolute;
+  background-color: none;
+  margin: 20px;
+  bottom: 0;
+}
+.SaveButton > button{
+  font-size: 10px;
+  border: none;
+  border-radius: 5px;
+  height: 20px;
+  width: 30px;
+  background-color: rgb(0, 197, 0);
+}
+.SaveButton > button:hover{
+  background-color: rgb(0, 154, 0);
+}
+
+.SaveButton > button:active{
+  background-color: rgb(0, 83, 0);
 }
 
 .RemoveButton > button{
@@ -218,6 +254,7 @@
 
 .Group > * {
   margin-top: auto;
+  color: white;
   margin-bottom: auto;
 }
 

@@ -10,7 +10,7 @@ function SideBar() {
       <Link to="/" className="Icon">
         <img src={home} />
       </Link>
-      <Link to="/" className="Icon">
+      <Link to="settings" className="Icon">
         <img src={settings} />
       </Link>
     </div>

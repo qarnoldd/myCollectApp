@@ -4,33 +4,11 @@ const itemsArray = [
     title:
       "Tamashi Nations - One Piece - Monkey.D.Luffy, Bandai Spirits Imagination Works (B09RQXYV8M)",
     description: "Find ONE PIECE - MONKEY.D.LUFFY by alliance entertainment.",
-    brand: "alliance entertainment",
-    model: "Tamashii Nations",
-    color: "",
-    size: "",
-    dimension: "",
-    weight: "",
-    category:
-      "Toys & Games > Toys > Dolls, Playsets & Toy Figures > Action & Toy Figures",
-    currency: "",
-    lowest_recorded_price: 101.99,
-    highest_recorded_price: 159.99,
     images: [
       "https://mediacdn.aent-m.com/prod-img/500/76/4066076-3314835.jpg",
       "https://www.entertainmentearth.com/images/AUTOIMAGES/BLFBAS62125lg.jpg",
       "https://www.tfaw.com/media/catalog/product/M/A/MAY222462.jpg",
       "https://images.fun.com/products/82025/1-2/one-piece-bandai-spirits-imagination-works-monkey-d-luffy.jpg",
-    ],
-    offers: [
-      {
-        merchant: "BOOKSAMILLION.COM",
-        domain: "booksamillion.com",
-        title: "ONE PIECE - MONKEY.D.LUFFY",
-        price: 110,
-        shipping: "",
-        condition: "New",
-        link: "https://www.booksamillion.com/product/monkeydluffy",
-      },
     ],
   },
   {
@@ -38,19 +16,7 @@ const itemsArray = [
     title:
       "Ichiban Kuji 1st Lottery One Piece Mug Cup F Prize 3set Anime F/s Japan",
     description: "",
-    elid: "362446824480",
-    brand: "BANPRESTO",
-    model: "",
-    color: "",
-    size: "",
-    dimension: "",
-    weight: "",
-    category:
-      "Toys & Games > Toys > Dolls, Playsets & Toy Figures > Action & Toy Figures",
-    lowest_recorded_price: 5,
-    highest_recorded_price: 157.09,
     images: [],
-    offers: [],
   },
   {
     ean: "4904810888919",
