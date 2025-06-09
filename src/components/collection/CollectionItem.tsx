@@ -49,8 +49,8 @@ function CollectionItem({
       {!edit ? (
         <div className="CollectionItem">
           <img src={image} />
-          <h3>{formData.title}</h3>
-          <p>{formData.description}</p>
+          <h3>{title}</h3>
+          <p>{description}</p>
           <RemoveButton func={() => handleDelete()} />
           <EditButton func={() => openEdit(!edit)} />
         </div>
@@ -60,7 +60,7 @@ function CollectionItem({
           <form onSubmit={handleChange}>
             <input
               type="text"
-              value={formData.title}
+              defaultValue={title}
               name="title"
               className="ItemTitleEdit"
               onChange={(e) =>
@@ -68,7 +68,7 @@ function CollectionItem({
               }
             />
             <textarea
-              value={formData.description}
+              defaultValue={description}
               rows={7}
               name="description"
               className="ItemDescEdit"

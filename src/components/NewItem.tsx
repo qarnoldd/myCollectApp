@@ -1,6 +1,6 @@
-import { useState, ChangeEvent } from "react";
+import { useState, ChangeEvent, useEffect } from "react";
 import axios from "axios";
-
+import Webcam from "react-webcam";
 interface ModalProps {
   collectionid: number;
   func: () => void;
@@ -8,6 +8,7 @@ interface ModalProps {
 
 export default function NewItem({ collectionid, func }: ModalProps) {
   const [file, setFile] = useState<string | null>(null);
+  const [capturedImage, setCapturedImage] = useState(null);
   const [formData, setFormData] = useState({
     collectionid: collectionid,
     title: "",
@@ -31,7 +32,7 @@ export default function NewItem({ collectionid, func }: ModalProps) {
       image: formData.image,
     });
     console.log(response);
-    this.forceUpdate();
+    window.location.reload();
   };
 
   return (

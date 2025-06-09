@@ -25,11 +25,55 @@ const pool = mysql
       return rows[0]
   }
 
-  export async function createUser(username, password, user_type, salt) {
+  export async function getByUsername(username) {
+    const [rows] = await pool.query(`
+      SELECT *
+      FROM user
+      WHERE username = ?`, [username])
+      return rows[0]
+  }
+
+  export async function comparePassword(user,pw) {
+    const [rows] = await pool.query(`
+      SELECT password
+      FROM user
+      WHERE username = ?`, [user])
+      console.log(rows.length)
+      if(rows.length < 1)
+      {
+        return false;
+
+      }
+      if(rows[0]?.password === pw)
+      {
+        return true
+      }
+      else
+      {
+        return false
+      }
+  }
+
+  export async function saveUser(id, username, password) {
     await pool.query(`
+      UPDATE user
+      SET username = ?, password = ?
+      WHERE user_id = ?`, [username,password, id])
+  }
+
+  export async function createUser(username, password, user_type, salt) {
+    const [rows] = await pool.query(`
       INSERT INTO user (username, password, user_type, salt)
       VALUES (?, ?, ?, ?)`,
     [username, password, user_type, salt])
+    return rows[0]
+  }
+
+  export async function deleteUser(id) {
+    const [rows] = await pool.query(`
+      DELETE FROM user WHERE user_id = ?`,
+    [id])
+    return rows[0]
   }
 
   export async function getAllCollections(id) {
@@ -49,14 +93,16 @@ const pool = mysql
     [id, name])
   }
 
-  export async function editCollection(id, name) {
+  export async function editCollection(id, name,desc,img) {
     await pool.query(`
       UPDATE collection
-      SET name ?
-      WHERE collection_id = ?`, [name,id])
+      SET name ?, image ?
+      WHERE collection_id = ?`, [name,img,id])
   }
 
   export async function deleteCollection(id) {
+    await pool.query(`
+      DELETE FROM item WHERE collection_id =?`, [id])
     await pool.query(`
       DELETE FROM collection WHERE collection_id =?`, [id])
   }

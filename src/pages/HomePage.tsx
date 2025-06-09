@@ -6,10 +6,8 @@ import Group from "../components/group/Group";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { Item } from "aws-sdk/clients/simpledb";
-
-function HandleButton() {
-  console.log("NEW COLLECTION PRESSED");
-}
+import NewCollection from "../components/NewCollection";
+import { useLocation } from "react-router-dom";
 
 interface Collection {
   collection_id: number;
@@ -17,21 +15,20 @@ interface Collection {
   num_items?: number;
 }
 
-interface Items {
-  item_id: number;
-  collection_id: number;
-  ean: string;
-  item_name: string;
-  item_desc: string;
-  item_image: string;
-}
-
 function HomePage() {
+  const location = useLocation();
+  const user_id = sessionStorage.getItem("id");
   const [collections, setCollections] = useState<Collection[]>([]);
-  const [items, setItems] = useState<Items[]>([]);
+  const [modalOpen, setModal] = useState(false);
+  console.log(user_id);
+  function HandleButton() {
+    setModal(true);
+  }
 
   const fetchAPI = async () => {
-    const collection = await axios.get("http://localhost:8080/collections/1");
+    const collection = await axios.get(
+      "http://localhost:8080/collections/" + user_id
+    );
     setCollections(collection.data);
   };
 
@@ -42,7 +39,9 @@ function HomePage() {
   const listCollections = collections.map((item) => {
     const id = item.collection_id;
     const title = item.collection_name;
-    return <Group title={title} id={id} />;
+    return (
+      <Group title={title} id={id} func={() => console.log("Group Function")} />
+    );
   });
 
   return (
@@ -51,7 +50,7 @@ function HomePage() {
         <h2>Collections</h2>
         <div className="RightSide">
           <AddButton func={HandleButton} />
-          <SearchBar />
+          {modalOpen && <NewCollection func={() => setModal(!modalOpen)} />}
         </div>
       </div>
       {listCollections}

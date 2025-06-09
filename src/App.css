@@ -4,6 +4,37 @@
   flex-direction: row;
 }
 
+body, html, #root {
+height: 100%;
+width: 100%;
+}
+
+.LoginPage {
+  display: flex;
+ justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.LoginContainer {
+  width: 20rem;
+  background-color: #393939;
+  border-radius: 20px;
+  margin: auto;
+  height: 20rem;
+  padding: 40px;
+}
+
+.LoginContainer > form > div {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+}
+
+.LoginContainer > form>button {
+  margin-top: 40px;
+  margin-right: 10px;
+}
 .SideBar {
   height: 100dvh;
   background-color: #1a1a1a;
@@ -139,6 +170,7 @@
   background-color: none;
   margin: 20px;
   bottom: 0;
+  z-index: 500;
 }
 
 .SaveButton {
@@ -146,6 +178,7 @@
   background-color: none;
   margin: 20px;
   bottom: 0;
+  z-index: 500;
 }
 .SaveButton > button{
   font-size: 10px;
@@ -181,11 +214,12 @@
 }
 
 .EditButton {
-  position: absolute;
+    position: absolute;
   background-color: none;
   margin-left: 60px;
   margin-bottom: 20px;
   bottom: 0;
+  z-index: 500;
 }
 
 .EditButton > button{
@@ -229,6 +263,12 @@
 }
 
 .Group {
+  width: 100%;
+  display: flex;
+}
+
+.GroupContainer
+{
   position: relative;
   display: flex;
   height: 100px;
@@ -243,7 +283,39 @@
   color: white;
 }
 
-.Group:hover {
+.GroupContainer > button {
+  width: 10%;
+}
+
+.bigedit {
+  border-radius: 0;
+  border: none;
+  font-weight: bolder;
+  font-size: 2em;
+  padding-bottom: 13px;
+}
+
+.bigedit:hover {
+  background-color: #393939;
+}
+
+.Group > form{
+  display: flex;
+  flex-direction: row;
+}
+
+.bigdel {
+  border-radius: 0;
+  background-color: red;
+  border: none;
+  font-weight: bolder;
+  font-size: 2em;
+}
+.bigdel:hover {
+  background-color: rgb(180, 0, 0);
+}
+
+.GroupContainer:hover {
   transform: scale(1.03);
   background-color: #515151;
 }
@@ -321,4 +393,17 @@
   width: 400px;
   height: 300px;
   object-fit:cover
+}
+
+.SettingsPage {
+  width: 100%; 
+}
+
+.SettingsPage > form {
+  margin: 1em;
+  display: flex;
+  flex-direction: column;
+}
+.SettingsPage > form > input {
+  width: 20em;
 }

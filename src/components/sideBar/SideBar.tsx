@@ -7,7 +7,7 @@ import settings from "../../assets/images/settings.svg";
 function SideBar() {
   return (
     <div className="SideBar">
-      <Link to="/" className="Icon">
+      <Link to="home" className="Icon">
         <img src={home} />
       </Link>
       <Link to="settings" className="Icon">

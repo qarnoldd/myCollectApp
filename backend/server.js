@@ -1,6 +1,6 @@
 import express from "express";
 import cors from "cors";
-import { getUsers, getUser, getAllCollections, getCollection, getItem, getItems, deleteCollection, deleteItem, editCollection, editItem, createCollection, createItem } from './database.js';
+import { getUsers, getUser, getAllCollections, getCollection, createUser, getItem, getItems, deleteCollection, deleteItem, editCollection, editItem, createCollection, createItem, comparePassword, getByUsername, deleteUser } from './database.js';
 
 const app = express();
 
@@ -17,15 +17,37 @@ app.get("/users", async (req, res) => {
     res.send(users).send("Users received")
 })
 
+app.post("/user", async (req, res) => {
+    const {username,password} = req.body;
+    if(await comparePassword(username,password))
+    {
+        const user = await getByUsername(username);
+        res.send(user)
+    }
+    else
+        res.status(401).send("ERROR")
+})
+
 app.get("/user/:id", async (req,res) => {
     const id = req.params.id
     const user = await getUser(id)
     res.send(user)
 })
 
+app.post("/user", async (req, res) => {
+    const {id, username, password} = req.body
+    const user = await saveUser(id, username, password)
+    res.status(201).send(user)
+})
+
 app.post("/users", async (req, res) => {
     const {username, password, user_type, salt} = req.body
     const user = await createUser(username, password, user_type, salt)
+    res.status(201).send(user)
+})
+app.post("/deleteuser/:id", async (req,res) => {
+    const id = req.params.id
+    const user = await deleteUser(id)
     res.status(201).send(user)
 })
 
@@ -41,20 +63,23 @@ app.get("/collection/:id", async (req,res) => {
     res.send(collection)
 })
 
-app.post("/collection/:id", async (req, res) => {
-    const {id, name} = req.body
-    const collection = await createCollection(id, name)
+app.post("/collection", async (req, res) => {
+    console.log("RUNNING")
+    const {id,title,image} = req.body
+    console.log(id, " ", title, " ", image)
+    const collection = await createCollection(id,title)
     res.status(201).send(collection)
 })
 
-app.post("/editcollection/:id", async (req, res) => {
+app.post("/editcollection", async (req, res) => {
     const {id,name} = req.body
     const collection = await editCollection(id,name)
     res.status(201).send(collection)
 })
 
 app.post("/deletecollection/:id", async (req, res) => {
-    const {id} = req.body
+    const {id} = req.params
+    console.log(id)
     const collection = await deleteCollection(id)
     res.status(201).send(collection)
 })
