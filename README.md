@@ -36,6 +36,8 @@ Item
 - item_desc
 - item_image
 
+## REST API Implementation
+
 The API has the following endpoints:
 
 For the Users
